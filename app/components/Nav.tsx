@@ -28,19 +28,24 @@ export default function Nav() {
     md:h-auto md:w-auto md:flex md:flex-row md:static md:bg-transparent md:space-y-0 md:space-x-7 md:items-center md:justify-center md:font-light md:text-white`}
         >
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
-          <Link  href="/" onClick={() =>setMenuOpen(!menuOpen) }> হোম</Link>
-            
+            <Link href="/" onClick={() => setMenuOpen(!menuOpen)}>
+              
+              হোম
+            </Link>
           </li>
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
-            আমাদের সম্পর্কে
+            <Link href="/about" onClick={() => setMenuOpen(!menuOpen)}>
+             
+              আমাদের সম্পর্কে
+            </Link>
           </li>
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
-            <Link href="/student" onClick={() =>setMenuOpen(!menuOpen) }>শিক্ষার্থী</Link>
-            
+            <Link href="/student" onClick={() => setMenuOpen(!menuOpen)}>
+              শিক্ষার্থী
+            </Link>
           </li>
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
-          <Link href="/teacher" > শিক্ষক</Link>
-           
+            <Link href="/teacher"> শিক্ষক</Link>
           </li>
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
             কমিটি
@@ -49,7 +54,11 @@ export default function Nav() {
           {/* Gallery with submenu */}
           <li className="relative text-xl font-bold cursor-pointer hover:text-[#008000] group">
             গ্যালারি
-            <ul className="absolute left-0 top-full mt-2 bg-[#a44a77] text-white  shadow-lg opacity-1 group-hover:opacity-100 transition-opacity duration-300 w-40 z-500 flex flex-col space-y-2 p-2">
+            <ul
+              className="absolute left-0 top-full mt-2 bg-[#a44a77] text-white shadow-lg 
+               opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+               transition-all duration-300 w-40 z-50 flex flex-col space-y-2 p-2"
+            >
               <li className="cursor-pointer hover:text-[#008000] px-1 py-1 rounded">
                 ছবি
               </li>
@@ -60,7 +69,11 @@ export default function Nav() {
           </li>
 
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
-            অর্জন
+          <Link href="/achievements" onClick={() => setMenuOpen(!menuOpen)}>
+             
+          অর্জন
+           </Link>
+            
           </li>
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
             ফলাফল
@@ -71,10 +84,14 @@ export default function Nav() {
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
             যোগাযোগ
           </li>
-
         </ul>
-            
-            <button className="absolute right-15 text-white text-bold top-[-50%] bottom-[-50%] text-xl"><Link  href="/admin/login" onClick={() =>setMenuOpen(!menuOpen) }> লগইন</Link></button>
+
+        <button className="absolute right-15 text-white text-bold top-[-50%] bottom-[-50%] text-xl">
+          <Link href="/admin/login" onClick={() => setMenuOpen(!menuOpen)}>
+            {" "}
+            লগইন
+          </Link>
+        </button>
       </nav>
     </div>
   );

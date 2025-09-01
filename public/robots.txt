@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://basirannesahighschool.edu.bd
+
+# Sitemaps
+Sitemap: https://basirannesahighschool.edu.bd/sitemap.xml
