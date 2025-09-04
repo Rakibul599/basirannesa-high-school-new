@@ -1,0 +1,12 @@
+# NODE_ENV=production
+# NEXT_PUBLIC_API_URL=http://localhost:5000
+# NEXT_PUBLIC_IMAGE=http://localhost:5000/uploads/avatars/
+MONGOOSE_CONNECTION_STRING=mongodb://localhost:27017/basirannesa-high-school
+JWT_SECRET=jd
+JWT_EXPIRY=1800000
+COOKIE_NAME=jd
+COOKIE_SECRET=jjf
+# ORIGIN=http://localhost:3000
+# NEXT_PUBLIC_API_URL=http://api.basirannesahighschool.edu.bd
+# NEXT_PUBLIC_IMAGE=http://api.basirannesahighschool.edu.bd/uploads/avatars/
+# 
