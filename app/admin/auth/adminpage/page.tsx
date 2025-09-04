@@ -1,34 +1,33 @@
 "use client";
 
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Adminpage() {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
 
+  const router = useRouter();
+  useEffect(() => {
+    checkLogin();
+    
+  }, [router]);
 
-//   useEffect(()=>{
-//     const cheackLogin= async ()=>{
-     
-//       try {
-//         const response= await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/login/me`,{
-//           withCredentials: true,
-//         })
-//         if(response.status==200)
-//         {
-//           router.push('/admin/auth/home');
-//         }
-//         else{
-//           router.push('/admin/login');
-//         }
-//       } catch (error) {
-//         router.push('/admin/login');
-//       }
-//     };
-//     cheackLogin();
-//   },[]);
+      const checkLogin = async () => {
+        try {
+          const response = await axios.get(`/login/me`, {
+            withCredentials: true,
+          });
+          // console.log(response.status)
+          if (response.status !== 200) {
+            router.push("/admin/auth/adminpage");
+          }
+        } catch {
+          router.push("/admin/login");
+        }
+      };
 
   // Correct event type for form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -50,7 +49,7 @@ export default function Adminpage() {
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
-        <h2 className="text-2xl font-bold text-center mb-6">Admin Login</h2>
+        <h2 className="text-2xl font-bold text-center mb-6">Admin Register</h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
                       {/* name */}
@@ -96,7 +95,7 @@ export default function Adminpage() {
             type="submit"
             className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition"
           >
-            Login
+            Register
           </button>
         </form>
       </div>

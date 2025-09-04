@@ -1,13 +1,30 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) { // Adjust this value to your preference
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div>
-      <nav className="bg-[#353683] h-[50px] md:flex md:justify-center relative px-4">
+    <div className={`${isScrolled ? "fixed top-0 left-0 w-full z-50 shadow-md" : "relative"}`}>
+      <nav className="bg-[#353683] h-[50px] md:flex md:justify-center px-4">
         {/* Hamburger Button */}
         <button
           className="md:hidden text-white absolute top-[20%] right-4 text-2xl"
@@ -24,18 +41,16 @@ export default function Nav() {
         {/* Menu Items */}
         <ul
           className={`absolute top-[50px] right-0 h-auto w-[50%] bg-[#a44a77] text-white z-40 flex flex-col space-y-4 p-4 transition-all duration-300 ease-in-out
-    ${menuOpen ? "block" : "hidden"}
-    md:h-auto md:w-auto md:flex md:flex-row md:static md:bg-transparent md:space-y-0 md:space-x-7 md:items-center md:justify-center md:font-light md:text-white`}
+          ${menuOpen ? "block" : "hidden"}
+          md:h-auto md:w-auto md:flex md:flex-row md:static md:bg-transparent md:space-y-0 md:space-x-7 md:items-center md:justify-center md:font-light md:text-white`}
         >
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
             <Link href="/" onClick={() => setMenuOpen(!menuOpen)}>
-              
               হোম
             </Link>
           </li>
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
             <Link href="/about" onClick={() => setMenuOpen(!menuOpen)}>
-             
               আমাদের সম্পর্কে
             </Link>
           </li>
@@ -56,24 +71,28 @@ export default function Nav() {
             গ্যালারি
             <ul
               className="absolute left-0 top-full mt-2 bg-[#a44a77] text-white shadow-lg 
-               opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-               transition-all duration-300 w-40 z-50 flex flex-col space-y-2 p-2"
+              opacity-0 invisible group-hover:opacity-100 group-hover:visible 
+              transition-all duration-300 w-40 z-50 flex flex-col space-y-2 p-2"
             >
               <li className="cursor-pointer hover:text-[#008000] px-1 py-1 rounded">
-                ছবি
+              <Link href="/photo-gallery" onClick={() => setMenuOpen(!menuOpen)}>
+              ছবি
+            </Link>
+                
               </li>
               <li className="cursor-pointer hover:text-[#008000] px-1 py-1 rounded">
-                ভিডিও
+              <Link href="/video-gallery" onClick={() => setMenuOpen(!menuOpen)}>
+              ভিডিও
+            </Link>
+                
               </li>
             </ul>
           </li>
 
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
-          <Link href="/achievements" onClick={() => setMenuOpen(!menuOpen)}>
-             
-          অর্জন
-           </Link>
-            
+            <Link href="/achievements" onClick={() => setMenuOpen(!menuOpen)}>
+              অর্জন
+            </Link>
           </li>
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
             ফলাফল
@@ -86,7 +105,7 @@ export default function Nav() {
           </li>
         </ul>
 
-        <button className="absolute right-15 text-white text-bold top-[-50%] bottom-[-50%] text-xl">
+        <button className="absolute right-15 text-white text-bold top-[50%] -translate-y-1/2 text-xl">
           <Link href="/admin/login" onClick={() => setMenuOpen(!menuOpen)}>
             {" "}
             লগইন

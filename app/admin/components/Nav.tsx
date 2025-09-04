@@ -11,6 +11,9 @@ export default function AdminPage() {
   const navLinks = [
     { name: "Teacher Info", path: "/admin/auth/teacher" },
     { name: "Student", path: "/admin/auth/student" },
+    { name: "Photo", path: "/admin/auth/photo-gallery" },
+    { name: "Video", path: "/admin/auth/video" },
+    { name: "Admin", path: "/admin/auth/adminpage" },
     { name: "About", path: "/admin/auth/about" },
   ];
 

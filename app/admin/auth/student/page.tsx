@@ -44,8 +44,10 @@ export default function EditableBengaliTable() {
           const response = await axios.get(`/login/me`, {
             withCredentials: true,
           });
+          
+          
           if (response.status !== 200) {
-            router.push("/admin/login");
+            router.push("/admin/auth/student");
           }
         } catch {
           router.push("/admin/login");
