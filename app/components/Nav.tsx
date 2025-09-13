@@ -60,7 +60,7 @@ export default function Nav() {
             </Link>
           </li>
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
-            <Link href="/teacher"> শিক্ষক</Link>
+            <Link href="/teacher" onClick={() => setMenuOpen(!menuOpen)}> শিক্ষক</Link>
           </li>
           <li className="text-xl font-bold cursor-pointer hover:text-[#008000]">
             কমিটি
@@ -106,7 +106,7 @@ export default function Nav() {
         </ul>
 
         <button className="absolute right-15 text-white text-bold top-[50%] -translate-y-1/2 text-xl">
-          <Link href="/admin/login" onClick={() => setMenuOpen(!menuOpen)}>
+          <Link href="/admin/login">
             {" "}
             লগইন
           </Link>

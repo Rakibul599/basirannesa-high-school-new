@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Footer() {
   return (
     <div>
@@ -53,7 +54,15 @@ export default function Footer() {
           </svg>
          
           <h6>© 2025 Basirannesa High School. All rights reserved.</h6>
-          <p>Developed by Team <span className="font-bold color-[red]">MR</span></p>
+          <p>Developed by Team <span className="font-bold color-[red]">
+                          <Link
+                            href="/developer"
+                            target="_blank"
+                            
+                          >
+                            MR 
+                          </Link>
+            </span></p>
          
         </aside>
         <nav className="md:place-self-center md:justify-self-end">
