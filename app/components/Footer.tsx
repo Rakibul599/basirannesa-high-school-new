@@ -37,6 +37,20 @@ export default function Footer() {
         <nav>
           <h6 className="footer-title text-xl">বছিরননেছা উচ্চ বিদ্যালয়, মানচিত্র</h6>
           {/* Maps will be added here  */}
+                  <div>
+          {/* <h2 className="text-2xl font-bold mb-3">Our Location</h2> */}
+          <div className="w-full h-40 rounded-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.958581675711!2d90.48408871538488!3d23.541779184718738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755afb366663ee9%3A0xf62d91e5bbb8661b!2sBasirannesa%20High%20School!5e0!3m2!1sen!2sbd!4v1696439500000!5m2!1sen!2sbd"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
         </nav>
       </footer>
       <footer className="footer bg-[#1b3545] text-white border-base-300 border-t px-10 py-4">

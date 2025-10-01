@@ -1,12 +1,13 @@
 import Image from "next/image";
 import head from "../../public/head.jpeg";
+import goal from "../../public/goal.jpeg";
 
 const Message = () => {
   return (
     <div>
       <div className="  w-[97%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-5 p-5">
         <div className="bg-[#edf0f2] shadow-md p-6 rounded-md inset-shadow-sm">
-          <h1 className="text-xl md:text-2xl font-bold mb-4 text-green-700 text-center">
+          <h1 className="text-xl md:text-2xl font-bold mb-4 text-[#353683] text-center">
             প্রধান শিক্ষকের বার্তা
           </h1>
 
@@ -47,8 +48,46 @@ const Message = () => {
 
         <div className="bg-[#edf0f2] p-5 rounded-md shadow-md inset-shadow-sm">
           <h1 className="text-xl md:text-2xl font-bold mb-4 text-[#353683] text-center">
-            জরুরী নাম্বার সমূহ
+            আমাদের লক্ষ্য
           </h1>
+          <div className="flex flex-col items-center mb-2.5 ">
+            <Image
+              src={goal}
+              alt="Picture of the author"
+              width={400}
+              height={200}
+              blurDataURL="data:..."
+              placeholder="blur" // Optional blur-up while loading
+              className="rounded-md"
+            />
+          </div>
+          <p>
+            বছিরননেছা উচ্চ বিদ্যালয় শিক্ষার্থীদের কেবলমাত্র একাডেমিক জ্ঞান
+            প্রদানই নয়, বরং তাদের নৈতিক মূল্যবোধ, সৃজনশীলতা ও সামাজিক
+            দায়িত্ববোধের উন্নয়নেও মনোযোগ দেয়। আমাদের লক্ষ্য হলো শিক্ষার্থীদের
+            এমনভাবে গড়ে তোলা যাতে তারা ভবিষ্যতে দেশের জন্য কার্যকর, মানবিক ও
+            সৃষ্টিশীল নাগরিক হয়ে উঠতে পারে।
+          </p>
+          <br />
+          <p className="mb-1 mt-1">আমরা চেষ্টা করি:</p>
+          <ul className="list-disc">
+            <li>
+              শিক্ষার্থীদের শৃঙ্খলাবদ্ধ ও দায়িত্বশীল ব্যক্তি হিসেবে গড়ে তোলা।
+            </li>
+            <li>
+             
+              বিজ্ঞান, প্রযুক্তি, সাহিত্য ও সংস্কৃতিতে শিক্ষার্থীদের আগ্রহ এবং
+              দক্ষতা বৃদ্ধি করা।
+            </li>
+            <li>
+              মানসম্পন্ন শিক্ষা ও সমৃদ্ধ পাঠ্যক্রমের মাধ্যমে প্রতিটি শিক্ষার্থীর
+              সম্ভাব্যতা অন্বেষণ করা।
+            </li>
+            <li>
+            
+              শিক্ষার্থীদের সামাজিক ও নৈতিক মূল্যবোধের উন্নয়নে সহায়তা করা।
+            </li>
+          </ul>
         </div>
       </div>
     </div>
